@@ -62,8 +62,8 @@
       <HintPath>..\packages\GreenPipes.1.0.9\lib\net452\GreenPipes.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="log4net, Version=2.0.7.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\packages\log4net.2.0.7\lib\net45-full\log4net.dll</HintPath>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="NewId, Version=3.0.0.0, Culture=neutral, PublicKeyToken=b8e0e9f2f1e657fa, processorArchitecture=MSIL">
@@ -74,8 +74,8 @@
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="nunit.framework, Version=3.6.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.3.6.0\lib\net45\nunit.framework.dll</HintPath>
+    <Reference Include="nunit.framework, Version=3.6.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.6.1\lib\net45\nunit.framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Shouldly, Version=2.8.2.0, Culture=neutral, PublicKeyToken=6042cbcb05cbc941, processorArchitecture=MSIL">
@@ -96,6 +96,9 @@
     <Compile Include="..\SolutionVersion.cs">
       <Link>Properties\SolutionVersion.cs</Link>
     </Compile>
+    <Compile Include="Audit\AuditFilter_Specs.cs" />
+    <Compile Include="Audit\Audit_Specs.cs" />
+    <Compile Include="Audit\InMemoryAuditStore.cs" />
     <Compile Include="BusActivityMonitor_Specs.cs" />
     <Compile Include="CachingTests\Bucket_Specs.cs" />
     <Compile Include="CachingTests\Endpoint.cs" />
@@ -109,8 +112,10 @@
     <Compile Include="ConcurrencyLimitKnob_Specs.cs" />
     <Compile Include="Configuration\ConfigurationObserver_Specs.cs" />
     <Compile Include="Configuration\SagaConfigurationObserver_Specs.cs" />
+    <Compile Include="Configuration\SendSpecification_Specs.cs" />
     <Compile Include="ConsumeJToken_Specs.cs" />
     <Compile Include="ConsumeObserver_Specs.cs" />
+    <Compile Include="ConsumePipeBuilder.cs" />
     <Compile Include="ConsumerFactoryMiddleware_Specs.cs" />
     <Compile Include="Consumer_Specs.cs" />
     <Compile Include="ContainedMessage_Specs.cs" />
@@ -148,6 +153,7 @@
     <Compile Include="FaultPublish_Specs.cs" />
     <Compile Include="HeaderObject_Specs.cs" />
     <Compile Include="HostInfo_Specs.cs" />
+    <Compile Include="IConsumePipeBuilder.cs" />
     <Compile Include="InMemoryDuo_Specs.cs" />
     <Compile Include="Introspection_Specs.cs" />
     <Compile Include="MessageData\DataBus_Specs.cs" />
@@ -231,10 +237,11 @@
     <Compile Include="Testing\SagaTest_Specs.cs" />
     <Compile Include="Testing\StandaloneConsumer_Specs.cs" />
     <Compile Include="Threading_Specs.cs" />
+    <Compile Include="Topology\CreateTopology_Specs.cs" />
     <Compile Include="Transforms\SendTransform_Specs.cs" />
     <Compile Include="Transforms\SetProperty_Specs.cs" />
     <Compile Include="Transforms\TransformClass_Specs.cs" />
-    <Compile Include="Transports\InMemoryTransport_Specs.cs" />
+    <Compile Include="Transports\MessageFabric_Specs.cs" />
     <Compile Include="Uri_Specs.cs" />
     <Compile Include="Saga\Messages\CompleteSimpleSaga.cs" />
     <Compile Include="Saga\Messages\InitiateSimpleSaga.cs" />
@@ -275,6 +282,10 @@
     <ProjectReference Include="..\Loggers\MassTransit.Log4NetIntegration\MassTransit.Log4NetIntegration.csproj">
       <Project>{8D2BE372-A756-4676-B2EA-ED7846809BFE}</Project>
       <Name>MassTransit.Log4NetIntegration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MassTransit.Audit\MassTransit.Audit.csproj">
+      <Project>{AE85151C-C049-47B2-BD8B-9915A3103299}</Project>
+      <Name>MassTransit.Audit</Name>
     </ProjectReference>
     <ProjectReference Include="..\MassTransit.TestFramework\MassTransit.TestFramework.csproj">
       <Project>{3C4B5F1A-69AD-415E-9F40-A7FDBD7A3012}</Project>

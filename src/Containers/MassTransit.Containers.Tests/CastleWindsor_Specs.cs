@@ -139,7 +139,7 @@ namespace MassTransit.Containers.Tests
     public class Using_message_scope_with_two_consumers :
         InMemoryTestFixture
     {
-        [Test]
+        [Test, Explicit]
         public async Task Should_receive_a_message_in_scope()
         {
             const string name = "Joe";
@@ -170,7 +170,7 @@ namespace MassTransit.Containers.Tests
                     .LifestyleScoped<MessageScope>());
         }
 
-        protected override void PreCreateBus(IInMemoryBusFactoryConfigurator configurator)
+        protected override void ConfigureInMemoryBus(IInMemoryBusFactoryConfigurator configurator)
         {
         }
 
