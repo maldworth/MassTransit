@@ -97,6 +97,7 @@
     <Compile Include="..\SolutionVersion.cs">
       <Link>Properties\SolutionVersion.cs</Link>
     </Compile>
+    <Compile Include="Configuration\TelemetryConfigurationExtensions.cs" />
     <Compile Include="Configuration\Configurators\ConsumeMessageFilterSpecification.cs" />
     <Compile Include="Configuration\Configurators\SendMessageFilterSpecification.cs" />
     <Compile Include="Audit\Observers\AuditConsumeObserver.cs" />
@@ -183,6 +184,10 @@
     <Compile Include="Configuration\IExecuteActivityArgumentsConfigurator.cs" />
     <Compile Include="Configuration\IExecuteActivityConfigurator.cs" />
     <Compile Include="Pipeline\PipeContextPayloadExtensions.cs" />
+    <Compile Include="Telemetry\ITelemetryClient.cs" />
+    <Compile Include="Telemetry\Observers\TelemetryConsumeObserver.cs" />
+    <Compile Include="Telemetry\Observers\TelemetryPublishObserver.cs" />
+    <Compile Include="Telemetry\Observers\TelemetrySendObserver.cs" />
     <Compile Include="Topology\Configuration\ConsumeTopologyConfigurationObservable.cs" />
     <Compile Include="Topology\Configuration\IConnectConsumeTopologyConfigurationObserver.cs" />
     <Compile Include="Topology\Configuration\IConsumeTopologyConfigurationObserver.cs" />
