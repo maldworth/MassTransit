@@ -30,7 +30,7 @@ namespace MassTransit.Courier.InternalMessages
             Itinerary = activities.ToList();
             ActivityLogs = activityLogs.ToList();
             CompensateLogs = compensateLogs.ToList();
-            Variables = variables ?? new Dictionary<string, object>();
+            Variables = variables ?? new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase);
             ActivityExceptions = exceptions.ToList();
             Subscriptions = subscriptions.ToList();
         }

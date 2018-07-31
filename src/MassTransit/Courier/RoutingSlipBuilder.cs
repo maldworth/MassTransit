@@ -410,7 +410,7 @@ namespace MassTransit.Courier
         public static IDictionary<string, object> GetObjectAsDictionary(object values)
         {
             if (values == null)
-                return new Dictionary<string, object>();
+                return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase);
 
             var dictionary = JObject.FromObject(values, SerializerCache.Serializer);
 

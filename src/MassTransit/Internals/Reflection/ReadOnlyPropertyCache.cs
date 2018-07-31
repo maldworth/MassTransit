@@ -57,7 +57,7 @@ namespace MassTransit.Internals.Reflection
             return new Dictionary<string, ReadOnlyProperty<T>>(typeof(T).GetAllProperties()
                 .Where(x => x.CanRead)
                 .Select(x => new ReadOnlyProperty<T>(x))
-                .ToDictionary(x => x.Property.Name));
+                .ToDictionary(x => x.Property.Name), StringComparer.OrdinalIgnoreCase);
         }
 
         public object Get(Expression<Func<T, object>> propertyExpression, T instance)
