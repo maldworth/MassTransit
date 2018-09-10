@@ -33,7 +33,8 @@ namespace MassTransit.Tests.Testing
 
             await _harness.Start();
 
-            await _harness.InputQueueSendEndpoint.Send(new A());
+            //await _harness.InputQueueSendEndpoint.Send(new A());
+            await _harness.Bus.Publish(new A());
         }
 
         [OneTimeTearDown]

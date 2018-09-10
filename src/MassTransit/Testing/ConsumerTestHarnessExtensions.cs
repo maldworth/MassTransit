@@ -27,7 +27,7 @@ namespace MassTransit.Testing
         }
 
         public static ConsumerTestHarness<T> Consumer<T>(this BusTestHarness harness, IConsumerFactory<T> consumerFactory, string queueName = null)
-            where T : class, IConsumer, new()
+            where T : class, IConsumer
         {
             return new ConsumerTestHarness<T>(harness, consumerFactory, queueName);
         }

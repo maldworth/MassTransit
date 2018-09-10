@@ -13,8 +13,10 @@
 namespace MassTransit.Tests
 {
     using System;
+    using System.Linq;
     using System.Threading.Tasks;
     using GreenPipes;
+    using MassTransit.Testing;
     using NUnit.Framework;
     using Shouldly;
     using TestFramework;
@@ -29,16 +31,30 @@ namespace MassTransit.Tests
         public async Task Should_be_received_properly()
         {
             var message = new PingMessage();
-            await Bus.Publish(message);
+            //await Bus.Publish(message);
 
-            await _received;
+            //await _received;
+            await InMemoryTestHarness.InputQueueSendEndpoint.Send(message);
+            var a = _consumed.Consumed.Select<PingMessage>().Any();
         }
 
         Task<ConsumeContext<PingMessage>> _received;
+        ConsumerTestHarness<TestConsumer> _consumed;
 
         protected override void ConfigureInMemoryReceiveEndpoint(IInMemoryReceiveEndpointConfigurator configurator)
         {
-            _received = Handled<PingMessage>(configurator);
+            //_received = Handled<PingMessage>(configurator);
+            _consumed = InMemoryTestHarness.Consumer<TestConsumer>();
+        }
+    }
+
+    public class TestConsumer : IConsumer<PingMessage>
+    {
+        public Task Consume(ConsumeContext<PingMessage> context)
+        {
+            var a = true;
+
+            return Task.FromResult(1);
         }
     }
 
