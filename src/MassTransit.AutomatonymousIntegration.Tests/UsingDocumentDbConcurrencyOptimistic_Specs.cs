@@ -143,7 +143,7 @@ namespace MassTransit.AutomatonymousIntegration.Tests
             }
 
             await Task.WhenAll(tasks);
-            await Task.Delay(5000);
+            await Task.Delay(10000);
             tasks.Clear();
 
 
