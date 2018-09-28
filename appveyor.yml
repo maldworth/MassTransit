@@ -17,11 +17,9 @@ nuget:
   project_feed: true
   disable_publish_on_pr: true
 install:
-  # Install DocumentDB Emulator
-  - ps: Start-FileDownload 'https://aka.ms/cosmosdb-emulator' -FileName 'C:\CosmosDB.Emulator.msi'
-  - cmd: cmd /c start /wait msiexec.exe /i C:\CosmosDB.Emulator.msi /quiet /qn /norestart /log install.log
-  - ps: >-
-      & "${env:ProgramFiles}\Azure Cosmos DB Emulator\CosmosDB.Emulator.exe" /NoExplorer /NoUI /NoFirewall
+  # Appveyor images now have cosmosdb installed (https://help.appveyor.com/discussions/problems/7950-unable-to-laucnh-cosmosdb-emulator), only need these lines now
+  - ps: Set-Content -Value '"C:\Program Files\Azure Cosmos DB Emulator\CosmosDB.Emulator.exe" /NoUI /NoExplorer /NoFirewall' -Path .\startCosmosDb.cmd
+  - ps: Start-Process -FilePath .\startCosmosDb.cmd
 build_script:
 - cmd: >-
     @echo off
@@ -51,7 +49,6 @@ test:
   - src/Persistence/MassTransit.MongoDbIntegration.Tests/bin/Release/net452/MassTransit.MongoDbIntegration.Tests.dll
   - src/Persistence/MassTransit.MartenIntegration.Tests/bin/Release/net452/MassTransit.MartenIntegration.Tests.dll
   - src/Persistence/MassTransit.NHibernateIntegration.Tests/bin/Release/net461/MassTransit.NHibernateIntegration.Tests.dll
-  - src/Persistence/MassTransit.DocumentDbIntegration.Tests/bin/Release/MassTransit.DocumentDbIntegration.Tests.dll
   - src/MassTransit.HttpTransport.Tests/bin/Release/net452/MassTransit.HttpTransport.Tests.dll
   categories:
     except:
