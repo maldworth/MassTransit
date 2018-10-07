@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MassTransit.RabbitMqTransport\MassTransit.RabbitMqTransport.csproj" />
-    <ProjectReference Include="..\MassTransit.SignalR.Sample\MassTransit.SignalR.Sample.csproj" />
     <ProjectReference Include="..\MassTransit.SignalR\MassTransit.SignalR.csproj" />
   </ItemGroup>
 

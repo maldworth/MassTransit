@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MassTransit.SignalR.Utils;
+using Microsoft.AspNetCore.SignalR;
 
 namespace MassTransit.SignalR.SampleConsole
 {
@@ -43,5 +44,13 @@ namespace MassTransit.SignalR.SampleConsole
 
             await busControl.StopAsync();
         }
+    }
+}
+
+namespace MassTransit.SignalR.Sample.Hubs
+{
+    public class ChatHub : Hub
+    {
+        // Actual implementation in the other project, but MT Needs the hub for the generic message type
     }
 }
