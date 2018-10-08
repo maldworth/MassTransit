@@ -1,5 +1,6 @@
 ﻿namespace MassTransit.SignalR.Consumers
 {
+    using MassTransit.Logging;
     using MassTransit.SignalR.Contracts;
     using Microsoft.AspNetCore.SignalR;
     using System;

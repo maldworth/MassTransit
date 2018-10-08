@@ -1,6 +1,5 @@
-﻿namespace MassTransit.SignalR.Internal
+﻿namespace MassTransit.SignalR.Utils
 {
-    using MassTransit.SignalR.Utils;
     using System;
 
     public class MassTransitFeature : IMassTransitFeature

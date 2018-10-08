@@ -31,33 +31,18 @@ namespace MassTransit.Tests
         public async Task Should_be_received_properly()
         {
             var message = new PingMessage();
-            //await Bus.Publish(message);
+            await Bus.Publish(message);
 
-            //await _received;
-            await InMemoryTestHarness.InputQueueSendEndpoint.Send(message);
-            var a = _consumed.Consumed.Select<PingMessage>().Any();
+            await _received;
         }
 
         Task<ConsumeContext<PingMessage>> _received;
-        ConsumerTestHarness<TestConsumer> _consumed;
 
         protected override void ConfigureInMemoryReceiveEndpoint(IInMemoryReceiveEndpointConfigurator configurator)
         {
-            //_received = Handled<PingMessage>(configurator);
-            _consumed = InMemoryTestHarness.Consumer<TestConsumer>();
+            _received = Handled<PingMessage>(configurator);
         }
     }
-
-    public class TestConsumer : IConsumer<PingMessage>
-    {
-        public Task Consume(ConsumeContext<PingMessage> context)
-        {
-            var a = true;
-
-            return Task.FromResult(1);
-        }
-    }
-
 
     [TestFixture]
     public class Publishing_an_object :

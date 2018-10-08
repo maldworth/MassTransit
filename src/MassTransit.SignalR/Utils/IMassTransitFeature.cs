@@ -1,7 +1,5 @@
-﻿namespace MassTransit.SignalR.Internal
+﻿namespace MassTransit.SignalR.Utils
 {
-    using MassTransit.SignalR.Utils;
-
     public interface IMassTransitFeature
     {
         ConcurrentHashSet<string> Groups { get; }

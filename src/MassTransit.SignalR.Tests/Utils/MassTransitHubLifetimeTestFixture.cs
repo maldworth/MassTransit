@@ -34,7 +34,6 @@
             jsonOptions = jsonOptions ?? new JsonHubProtocolOptions();
 
             var manager = new MassTransitHubLifetimeManager<THub>(
-            NullLogger<MassTransitHubLifetimeManager<THub>>.Instance,
             Harness.Bus,
             Harness.Bus.CreateRequestClient<GroupManagement<THub>>(TimeSpan.FromSeconds(5)),
             new DefaultHubProtocolResolver(new IHubProtocol[]

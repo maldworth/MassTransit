@@ -14,7 +14,6 @@ namespace MassTransit.Testing
 {
     using Decorators;
     using MessageObservers;
-    using System.Collections.Generic;
 
     public class ConsumerTestHarness<TConsumer>
         where TConsumer : class, IConsumer
