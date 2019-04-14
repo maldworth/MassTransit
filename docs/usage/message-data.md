@@ -2,6 +2,8 @@
 
 Message brokers are built to be fast, and larger message sizes can affect broker performance. MassTransit offers an out of box option which will store a large payload (byte array) to a repository. Transmit the message over the broker with a Uri to the payload, and then load the payload back from the repository on the consumer.
 
+## Repositories
+
 First MassTransit offers a few repositories out of box.
 
 * InMemoryMessageDataRepository
@@ -10,6 +12,8 @@ First MassTransit offers a few repositories out of box.
 * EncryptedMessageDataRepository
 
 For Receiving, you need to add the MessageData Middleware when constructing your Endpoints for Consumers.
+
+## Example
 
 Example with Microsoft DI:
 
