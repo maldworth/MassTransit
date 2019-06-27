@@ -45,13 +45,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassTransit.NLogIntegration
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassTransit.Reactive.Tests", "MassTransit.Reactive.Tests\MassTransit.Reactive.Tests.csproj", "{038A8635-7105-4BF7-9DE9-8610A4E58A61}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{2C8A15FA-A445-4916-AAC2-3BE53AA247A7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{2C8A15FA-A445-4916-AAC2-3BE53AA247A7}"
 	ProjectSection(SolutionItems) = preProject
 		..\appveyor.yml = ..\appveyor.yml
 		..\build.cake = ..\build.cake
 		..\build.ps1 = ..\build.ps1
 		..\build.sh = ..\build.sh
 		Directory.Build.props = Directory.Build.props
+		..\packages.props = ..\packages.props
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassTransit.AzureServiceBusTransport", "MassTransit.AzureServiceBusTransport\MassTransit.AzureServiceBusTransport.csproj", "{A84B8D78-6592-4340-9E78-4AC608F53EFD}"
@@ -174,9 +175,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassTransit.SignalR.Sample"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassTransit.WebJobs.EventHubsIntegration", "MassTransit.WebJobs.EventHubsIntegration\MassTransit.WebJobs.EventHubsIntegration.csproj", "{56E9DB90-C063-49CA-BAF7-FFCFE963E44C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassTransit.WebJobs.Tests", "MassTransit.WebJobs.Tests\MassTransit.WebJobs.Tests.csproj", "{0C214618-DBFA-45B6-B1B3-99E90F17FE23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassTransit.WebJobs.Tests", "MassTransit.WebJobs.Tests\MassTransit.WebJobs.Tests.csproj", "{0C214618-DBFA-45B6-B1B3-99E90F17FE23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassTransit.Automatonymous.SimpleInjectorIntegration", "Containers\MassTransit.Automatonymous.SimpleInjectorIntegration\MassTransit.Automatonymous.SimpleInjectorIntegration.csproj", "{A210D0E6-7798-46DC-93C0-367F8CBD8DC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassTransit.Automatonymous.SimpleInjectorIntegration", "Containers\MassTransit.Automatonymous.SimpleInjectorIntegration\MassTransit.Automatonymous.SimpleInjectorIntegration.csproj", "{A210D0E6-7798-46DC-93C0-367F8CBD8DC5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -1038,7 +1039,7 @@ Global
 		{A210D0E6-7798-46DC-93C0-367F8CBD8DC5} = {6C61507E-FF16-45C8-8FE4-350069D9B4C1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {43D3A7D5-0945-435E-8D03-1E631E5CDBA8}
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35
+		SolutionGuid = {43D3A7D5-0945-435E-8D03-1E631E5CDBA8}
 	EndGlobalSection
 EndGlobal

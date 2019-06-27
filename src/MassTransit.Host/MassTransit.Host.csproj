@@ -1,4 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Sdk Name="Microsoft.Build.CentralPackageVersions" Version="2.0.1" />
   <Import Project="../netfx.props" />
   <Import Project="../signing.props" />
 
@@ -17,9 +18,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="4.9.2" />
-    <PackageReference Include="log4net" Version="2.0.8" />
-    <PackageReference Include="Topshelf.Log4Net" Version="4.2.0" />
+    <PackageReference Include="Autofac" />
+    <PackageReference Include="log4net" />
+    <PackageReference Include="Topshelf.Log4Net" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
