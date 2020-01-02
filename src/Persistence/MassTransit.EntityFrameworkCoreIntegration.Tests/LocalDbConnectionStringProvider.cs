@@ -24,7 +24,7 @@
         /// <summary>
         /// Loops through the array of potential localdb connection strings to find one that we can use for the unit tests
         /// </summary>
-        public static string GetLocalDbConnectionString()
+        public static string GetLocalDbConnectionString(string initialCatalog = null)
         {
             if (!string.IsNullOrWhiteSpace(_connectionString))
                 return _connectionString;
@@ -44,7 +44,7 @@
                             connection.Open();
 
                             // It worked, we can save this as our connection string
-                            _connectionString = connectionString + "Initial Catalog=MassTransitUnitTests_v12_2015;";
+                            _connectionString = connectionString + "Initial Catalog=" + initialCatalog ?? "MassTransitUnitTests_v12_2015;";
                             break;
                         }
                     }
