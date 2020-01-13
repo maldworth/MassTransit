@@ -39,6 +39,7 @@ namespace MassTransit.EntityFrameworkCoreIntegration.Tests
     {
         private static object _createLock = new object();
         private static bool _creating = false;
+        private static bool _created = false;
 
         [Test]
         public async Task Should_publish_after_db_create()
@@ -50,7 +51,7 @@ namespace MassTransit.EntityFrameworkCoreIntegration.Tests
             using(var dbContext = GetDbContext())
             using (var transaction = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
             {
-                dbContext.Products.Add(product);
+                dbContext.Car.Add(product);
                 await dbContext.SaveChangesAsync();
 
                 await transactionOutbox.Publish(message);
@@ -66,7 +67,7 @@ namespace MassTransit.EntityFrameworkCoreIntegration.Tests
 
             using (var dbContext = GetDbContext())
             {
-                Assert.IsTrue(await dbContext.Products.AnyAsync(x => x.Id == product.Id));
+                Assert.IsTrue(await dbContext.Car.AnyAsync(x => x.Id == product.Id));
             }
         }
 
@@ -80,7 +81,7 @@ namespace MassTransit.EntityFrameworkCoreIntegration.Tests
             using(var dbContext = GetDbContext())
             using (var transaction = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
             {
-                var entity = dbContext.Products.Add(product);
+                var entity = dbContext.Car.Add(product);
                 await dbContext.SaveChangesAsync();
 
                 await transactionOutbox.Publish(message);
@@ -90,7 +91,7 @@ namespace MassTransit.EntityFrameworkCoreIntegration.Tests
 
             using(var dbContext = GetDbContext())
             {
-                Assert.IsFalse(await dbContext.Products.AnyAsync(x => x.Id == product.Id));
+                Assert.IsFalse(await dbContext.Car.AnyAsync(x => x.Id == product.Id));
             }
         }
 
@@ -100,7 +101,7 @@ namespace MassTransit.EntityFrameworkCoreIntegration.Tests
         {
             var dbContext = new TransactionOutboxTestsDbContext(new DbContextOptionsBuilder().UseSqlServer(LocalDbConnectionStringProvider.GetLocalDbConnectionString("MassTransitUnitTests_TransactionOutbox")).Options);
 
-            if (_creating == false)
+            if (_created == false)
             {
                 lock (_createLock)
                 {
@@ -108,8 +109,10 @@ namespace MassTransit.EntityFrameworkCoreIntegration.Tests
                     {
                         _creating = true;
                         dbContext.Database.EnsureCreated();
+                        _created = true;
                         //RelationalDatabaseCreator databaseCreator = (RelationalDatabaseCreator)dbContext.Database.GetService<IDatabaseCreator>();
                         //databaseCreator.CreateTables();
+
                     }
                 }
             }
@@ -130,7 +133,7 @@ namespace MassTransit.EntityFrameworkCoreIntegration.Tests
         {
         }
 
-        public DbSet<Product> Products { get; set; }
+        public DbSet<Product> Car { get; set; }
     }
 
     public class Product
