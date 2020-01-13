@@ -11,7 +11,7 @@ using System.Transactions;
 namespace MassTransit.Tests.Transactions
 {
     [TestFixture]
-    public class Publishing_a_message :
+    public class When_using_transaction_scope_with_publish_and_complete :
         InMemoryTestFixture
     {
         [Test]
@@ -33,20 +33,18 @@ namespace MassTransit.Tests.Transactions
             await _received;
         }
 
-        [Test]
-        public async Task Should_not_publish_properly()
+        Task<ConsumeContext<PingMessage>> _received;
+
+        protected override void ConfigureInMemoryReceiveEndpoint(IInMemoryReceiveEndpointConfigurator configurator)
         {
-            var message = new PingMessage();
-            var transactionOutbox = new TransactionOutbox(Bus, Bus, new NullLoggerFactory());
-
-            using (var transaction = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
-            {
-                await transactionOutbox.Publish(message);
-            }
-
-            Assert.That(async () => await _received.OrTimeout(s: 3), Throws.TypeOf<TimeoutException>());
+            _received = Handled<PingMessage>(configurator);
         }
+    }
 
+    [TestFixture]
+    public class When_using_transaction_scope_with_send_and_complete :
+        InMemoryTestFixture
+    {
         [Test]
         public async Task Should_send_properly()
         {
@@ -66,6 +64,44 @@ namespace MassTransit.Tests.Transactions
             await _received;
         }
 
+        Task<ConsumeContext<PingMessage>> _received;
+
+        protected override void ConfigureInMemoryReceiveEndpoint(IInMemoryReceiveEndpointConfigurator configurator)
+        {
+            _received = Handled<PingMessage>(configurator);
+        }
+    }
+
+    [TestFixture]
+    public class When_using_transaction_scope_with_publish_and_no_complete :
+        InMemoryTestFixture
+    {
+        [Test]
+        public async Task Should_not_publish_properly()
+        {
+            var message = new PingMessage();
+            var transactionOutbox = new TransactionOutbox(Bus, Bus, new NullLoggerFactory());
+
+            using (var transaction = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
+            {
+                await transactionOutbox.Publish(message);
+            }
+
+            Assert.That(async () => await _received.OrTimeout(s: 3), Throws.TypeOf<TimeoutException>());
+        }
+
+        Task<ConsumeContext<PingMessage>> _received;
+
+        protected override void ConfigureInMemoryReceiveEndpoint(IInMemoryReceiveEndpointConfigurator configurator)
+        {
+            _received = Handled<PingMessage>(configurator);
+        }
+    }
+
+    [TestFixture]
+    public class When_using_transaction_scope_with_send_and_no_complete :
+        InMemoryTestFixture
+    {
         [Test]
         public async Task Should_not_send_properly()
         {
@@ -88,6 +124,4 @@ namespace MassTransit.Tests.Transactions
             _received = Handled<PingMessage>(configurator);
         }
     }
-
-
 }
