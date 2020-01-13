@@ -14,6 +14,7 @@ namespace MassTransit.EntityFrameworkCoreIntegration.Tests
 {
     using System;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Reflection;
     using System.Threading.Tasks;
     using System.Transactions;
     using GreenPipes.Internals.Extensions;
@@ -36,6 +37,9 @@ namespace MassTransit.EntityFrameworkCoreIntegration.Tests
     public class TransactionOutbox_Specs :
         InMemoryTestFixture
     {
+        private static object _createLock = new object();
+        private static bool _creating = false;
+
         [Test]
         public async Task Should_publish_after_db_create()
         {
@@ -95,10 +99,21 @@ namespace MassTransit.EntityFrameworkCoreIntegration.Tests
         private TransactionOutboxTestsDbContext GetDbContext()
         {
             var dbContext = new TransactionOutboxTestsDbContext(new DbContextOptionsBuilder().UseSqlServer(LocalDbConnectionStringProvider.GetLocalDbConnectionString("MassTransitUnitTests_TransactionOutbox")).Options);
-            //dbContext.Database.EnsureDeleted();
-            dbContext.Database.EnsureCreated();
-            RelationalDatabaseCreator databaseCreator = (RelationalDatabaseCreator)dbContext.Database.GetService<IDatabaseCreator>();
-            databaseCreator.CreateTables();
+
+            if (_creating == false)
+            {
+                lock (_createLock)
+                {
+                    if (_creating == false)
+                    {
+                        _creating = true;
+                        dbContext.Database.EnsureCreated();
+                        //RelationalDatabaseCreator databaseCreator = (RelationalDatabaseCreator)dbContext.Database.GetService<IDatabaseCreator>();
+                        //databaseCreator.CreateTables();
+                    }
+                }
+            }
+
             return dbContext;
         }
 
@@ -118,7 +133,6 @@ namespace MassTransit.EntityFrameworkCoreIntegration.Tests
         public DbSet<Product> Products { get; set; }
     }
 
-    [Table("Products")]
     public class Product
     {
         public Guid Id { get; set; }
