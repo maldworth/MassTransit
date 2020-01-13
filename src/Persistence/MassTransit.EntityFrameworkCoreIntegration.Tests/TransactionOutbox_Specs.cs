@@ -13,12 +13,15 @@
 namespace MassTransit.EntityFrameworkCoreIntegration.Tests
 {
     using System;
+    using System.ComponentModel.DataAnnotations.Schema;
     using System.Threading.Tasks;
     using System.Transactions;
     using GreenPipes.Internals.Extensions;
     using MassTransit.Tests.Saga.Messages;
     using MassTransit.Transactions;
     using Microsoft.EntityFrameworkCore;
+    using Microsoft.EntityFrameworkCore.Infrastructure;
+    using Microsoft.EntityFrameworkCore.Storage;
     using Microsoft.Extensions.Logging.Abstractions;
     using NUnit.Framework;
     using TestFramework;
@@ -92,7 +95,10 @@ namespace MassTransit.EntityFrameworkCoreIntegration.Tests
         private TransactionOutboxTestsDbContext GetDbContext()
         {
             var dbContext = new TransactionOutboxTestsDbContext(new DbContextOptionsBuilder().UseSqlServer(LocalDbConnectionStringProvider.GetLocalDbConnectionString("MassTransitUnitTests_TransactionOutbox")).Options);
+            //dbContext.Database.EnsureDeleted();
             dbContext.Database.EnsureCreated();
+            RelationalDatabaseCreator databaseCreator = (RelationalDatabaseCreator)dbContext.Database.GetService<IDatabaseCreator>();
+            databaseCreator.CreateTables();
             return dbContext;
         }
 
@@ -112,6 +118,7 @@ namespace MassTransit.EntityFrameworkCoreIntegration.Tests
         public DbSet<Product> Products { get; set; }
     }
 
+    [Table("Products")]
     public class Product
     {
         public Guid Id { get; set; }
