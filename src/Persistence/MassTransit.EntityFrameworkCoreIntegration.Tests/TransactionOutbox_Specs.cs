@@ -13,16 +13,12 @@
 namespace MassTransit.EntityFrameworkCoreIntegration.Tests
 {
     using System;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Reflection;
     using System.Threading.Tasks;
     using System.Transactions;
     using GreenPipes.Internals.Extensions;
     using MassTransit.Tests.Saga.Messages;
     using MassTransit.Transactions;
     using Microsoft.EntityFrameworkCore;
-    using Microsoft.EntityFrameworkCore.Infrastructure;
-    using Microsoft.EntityFrameworkCore.Storage;
     using Microsoft.Extensions.Logging.Abstractions;
     using NUnit.Framework;
     using TestFramework;
@@ -37,10 +33,6 @@ namespace MassTransit.EntityFrameworkCoreIntegration.Tests
     public class TransactionOutbox_Specs :
         InMemoryTestFixture
     {
-        private static object _createLock = new object();
-        private static bool _creating = false;
-        private static bool _created = false;
-
         [Test]
         public async Task Should_publish_after_db_create()
         {
@@ -49,21 +41,21 @@ namespace MassTransit.EntityFrameworkCoreIntegration.Tests
             var transactionOutbox = new TransactionOutbox(Bus, Bus, new NullLoggerFactory());
 
             using(var dbContext = GetDbContext())
-            //using (var transaction = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
+            using (var transaction = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
             {
                 dbContext.Products.Add(product);
                 await dbContext.SaveChangesAsync();
 
-                //await transactionOutbox.Publish(message);
+                await transactionOutbox.Publish(message);
 
                 // Hasn't published yet
-                //Assert.That(async () => await _received.OrTimeout(s: 3), Throws.TypeOf<TimeoutException>());
+                Assert.That(async () => await _received.OrTimeout(s: 3), Throws.TypeOf<TimeoutException>());
 
-                //transaction.Complete();
+                transaction.Complete();
             }
 
             // Now has published
-            //await _received;
+            await _received;
 
             using (var dbContext = GetDbContext())
             {
@@ -71,29 +63,29 @@ namespace MassTransit.EntityFrameworkCoreIntegration.Tests
             }
         }
 
-        //[Test]
-        //public async Task Should_not_publish_properly()
-        //{
-        //    var message = new InitiateSimpleSaga();
-        //    var product = new Product { Name = "Should_not_publish_properly" };
-        //    var transactionOutbox = new TransactionOutbox(Bus, Bus, new NullLoggerFactory());
+        [Test]
+        public async Task Should_not_publish_properly()
+        {
+            var message = new InitiateSimpleSaga();
+            var product = new Product { Name = "Should_not_publish_properly" };
+            var transactionOutbox = new TransactionOutbox(Bus, Bus, new NullLoggerFactory());
 
-        //    using(var dbContext = GetDbContext())
-        //    using (var transaction = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
-        //    {
-        //        var entity = dbContext.Products.Add(product);
-        //        await dbContext.SaveChangesAsync();
+            using (var dbContext = GetDbContext())
+            using (var transaction = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
+            {
+                var entity = dbContext.Products.Add(product);
+                await dbContext.SaveChangesAsync();
 
-        //        await transactionOutbox.Publish(message);
-        //    }
+                await transactionOutbox.Publish(message);
+            }
 
-        //    Assert.That(async () => await _received.OrTimeout(s: 3), Throws.TypeOf<TimeoutException>());
+            Assert.That(async () => await _received.OrTimeout(s: 3), Throws.TypeOf<TimeoutException>());
 
-        //    using(var dbContext = GetDbContext())
-        //    {
-        //        Assert.IsFalse(await dbContext.Products.AnyAsync(x => x.Id == product.Id));
-        //    }
-        //}
+            using (var dbContext = GetDbContext())
+            {
+                Assert.IsFalse(await dbContext.Products.AnyAsync(x => x.Id == product.Id));
+            }
+        }
 
         Task<ConsumeContext<InitiateSimpleSaga>> _received;
 
@@ -106,25 +98,6 @@ namespace MassTransit.EntityFrameworkCoreIntegration.Tests
         protected override void ConfigureInMemoryReceiveEndpoint(IInMemoryReceiveEndpointConfigurator configurator)
         {
             _received = Handled<InitiateSimpleSaga>(configurator);
-
-            //using(var dbContext = GetDbContext())
-            //{
-            //    if (_created == false)
-            //    {
-            //        lock (_createLock)
-            //        {
-            //            if (_creating == false)
-            //            {
-            //                _creating = true;
-            //                dbContext.Database.EnsureCreated();
-            //                _created = true;
-            //                //RelationalDatabaseCreator databaseCreator = (RelationalDatabaseCreator)dbContext.Database.GetService<IDatabaseCreator>();
-            //                //databaseCreator.CreateTables();
-
-            //            }
-            //        }
-            //    }
-            //}
         }
 
         public TransactionOutbox_Specs()
@@ -132,6 +105,8 @@ namespace MassTransit.EntityFrameworkCoreIntegration.Tests
             using (var dbContext = GetDbContext())
             {
                 dbContext.Database.EnsureCreated();
+                //RelationalDatabaseCreator databaseCreator = (RelationalDatabaseCreator)dbContext.Database.GetService<IDatabaseCreator>();
+                //databaseCreator.CreateTables();
             }
         }
     }
