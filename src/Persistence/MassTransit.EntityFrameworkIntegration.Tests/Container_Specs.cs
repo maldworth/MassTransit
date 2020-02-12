@@ -21,14 +21,14 @@ namespace MassTransit.EntityFrameworkIntegration.Tests
         public class Using_pessimistic_concurrency :
             InMemoryTestFixture
         {
-            [Test, Explicit]
+            [Test]
             public async Task Should_work_as_expected()
             {
                 Task<ConsumeContext<TestStarted>> started = ConnectPublishHandler<TestStarted>();
                 Task<ConsumeContext<TestUpdated>> updated = ConnectPublishHandler<TestUpdated>();
 
-                var correlationId = NewId.NextGuid();
-                var testKey = NewId.NextGuid().ToString();
+                var correlationId = Guid.NewGuid();
+                var testKey = Guid.NewGuid().ToString();
 
                 await InputQueueSendEndpoint.Send(new StartTest
                 {
@@ -85,14 +85,14 @@ namespace MassTransit.EntityFrameworkIntegration.Tests
         public class Using_optimistic_concurrency :
             InMemoryTestFixture
         {
-            [Test, Explicit]
+            [Test]
             public async Task Should_work_as_expected()
             {
                 Task<ConsumeContext<TestStarted>> started = ConnectPublishHandler<TestStarted>();
                 Task<ConsumeContext<TestUpdated>> updated = ConnectPublishHandler<TestUpdated>();
 
-                var correlationId = NewId.NextGuid();
-                var testKey = NewId.NextGuid().ToString();
+                var correlationId = Guid.NewGuid();
+                var testKey = Guid.NewGuid().ToString();
 
                 await InputQueueSendEndpoint.Send(new StartTest
                 {
