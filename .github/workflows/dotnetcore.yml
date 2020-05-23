@@ -45,10 +45,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nuget-
             
-      - uses: actions/checkout@v2
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 3.1.101
       - name: Test
-        run: dotnet test ./tests/MassTransit.Tests/MassTransit.Tests.csproj --no-restore --verbosity normal
+        run: dotnet test ./tests/MassTransit.Tests/MassTransit.Tests.csproj --verbosity normal
