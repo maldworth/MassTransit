@@ -92,7 +92,7 @@ Task("Test")
         if(data.IsRunningOnUnix)
         {
             if (!coreFrameworks.Any())
-                continue; // Skip, there's no netcore tests to run for linux/osx
+                continue; /// Skip, there's no netcore tests to run for linux/osx
             else
                 settings.Framework = coreFrameworks.First(); // only test netcore
         }
