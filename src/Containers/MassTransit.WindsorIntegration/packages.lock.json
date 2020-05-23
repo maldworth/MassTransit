@@ -85,7 +85,7 @@
       "Microsoft.DotNet.PlatformAbstractions": {
         "type": "Transitive",
         "resolved": "1.1.2",
-        "contentHash": "z4CSzQKBFokkmcJgeEGC0n6RNpxHs6/kMpzFPwIh0U6zQN4/wZqK4r96IU9e7yRMTm3kFah9k4LEn3/Ecz6/5A==",
+        "contentHash": "R1BV4p6dJQHjqPSiU3Kb8otyC0pVbk3HWVMx8yi4zQ/eZyQRQ6vli1Ron2GwXVK7+g0RELs2chy+v+v8gTAnmw==",
         "dependencies": {
           "System.AppContext": "4.1.0",
           "System.Collections": "4.0.11",
@@ -100,7 +100,7 @@
       "Microsoft.Extensions.DependencyModel": {
         "type": "Transitive",
         "resolved": "1.1.2",
-        "contentHash": "k1dsqK0Xy3jqCr4+1rzKdA94ki3AmYDQm3kExtyJR2SgJyF1vcDPuDhsYw0S0OhffDTlA2RF2B6EaiFIuP6QaQ==",
+        "contentHash": "v/Y38U1tsdr8s5SLpTzbiwsugSFV+JNtm2lGb0agKDt/IwmWFbAqOR/rLr/ER1u4X5cHRv/J2dU6acUzYA0MFQ==",
         "dependencies": {
           "Microsoft.DotNet.PlatformAbstractions": "1.1.2",
           "Newtonsoft.Json": "9.0.1",
@@ -409,7 +409,7 @@
       "System.Numerics.Vectors": {
         "type": "Transitive",
         "resolved": "4.4.0",
-        "contentHash": "ZhdgJiihSOGD325jClouHy8WSPtwFSj6K1OymoEyN0Wc9Y6X2OVxn65VKfTWHQOYM+QljlVSreporVNvZm8rEA=="
+        "contentHash": "UiLzLW+Lw6HLed1Hcg+8jSRttrbuXv7DANVj0DkL9g6EnnzbL75EB7EWsw5uRbhxd/4YdG8li5XizGWepmG3PQ=="
       },
       "System.ObjectModel": {
         "type": "Transitive",

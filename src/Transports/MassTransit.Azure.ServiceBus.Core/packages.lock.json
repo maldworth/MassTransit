@@ -54,7 +54,7 @@
       "Microsoft.Azure.Amqp": {
         "type": "Transitive",
         "resolved": "2.4.2",
-        "contentHash": "5ts50ikcpHnJPISv4y38iianhTf0j9Qk+tapJOORcYTHfGXnUhvmlFrTB0GxenNX+7b0KMx/eaOpraSls6msrg==",
+        "contentHash": "lpLAG37LJ6UCU6mF4kGFt9mxtp6BQPAEB07pxSKDjzqRhqLrd0yHArGTg8vkIIDw5JR6iVZIhpS2vxMF4KtR0A==",
         "dependencies": {
           "System.Net.WebSockets.Client": "4.0.2",
           "System.Runtime.Serialization.Primitives": "4.1.1"
@@ -544,7 +544,7 @@
       "System.Numerics.Vectors": {
         "type": "Transitive",
         "resolved": "4.4.0",
-        "contentHash": "ZhdgJiihSOGD325jClouHy8WSPtwFSj6K1OymoEyN0Wc9Y6X2OVxn65VKfTWHQOYM+QljlVSreporVNvZm8rEA=="
+        "contentHash": "UiLzLW+Lw6HLed1Hcg+8jSRttrbuXv7DANVj0DkL9g6EnnzbL75EB7EWsw5uRbhxd/4YdG8li5XizGWepmG3PQ=="
       },
       "System.Private.DataContractSerialization": {
         "type": "Transitive",

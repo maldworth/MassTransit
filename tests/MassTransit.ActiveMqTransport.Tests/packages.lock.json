@@ -6,7 +6,7 @@
         "type": "Direct",
         "requested": "[2.0.0, )",
         "resolved": "2.0.0",
-        "contentHash": "8OobpMs58GyXKCy6HeqoxtyPYzUMOScb2EHK5R+CnX95beyGNhBSTil3tLi4I1tMr8ypBwXy6/6kh5agPqHjJQ=="
+        "contentHash": "D2GsYP/5kddQss6vkX8edw6Dt+qHBN5+pv6DIF8vvb8ObFyiU/r/JK8A2RKE1ucC6nPojQUApvq8IJVNIjYedQ=="
       },
       "Microsoft.NET.Test.Sdk": {
         "type": "Direct",
@@ -165,7 +165,7 @@
       "NETStandard.Library": {
         "type": "Transitive",
         "resolved": "2.0.0",
-        "contentHash": "K+VbtrXt7GVyKmV5O/VtHtNexwarX+I6I+eTBwfWHIgBn2qgsfOqWi8Vbqa86lMbglpOwGXBageEJr8Fq71yiw==",
+        "contentHash": "7jnbRU+L08FXKMxqUflxEXtVymWvNOrS8yHgu9s6EM8Anr6T/wIX4nZ08j/u3Asz+tCufp3YVwFSEvFTPYmBPA==",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0"
         }

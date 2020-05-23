@@ -18,7 +18,7 @@ jobs:
       with:
         dotnet-version: 3.1.101
     - name: Install dependencies
-      run: dotnet restore --locked-mode
+      run: dotnet restore
     - uses: actions/cache@v1
       with:
         path: ~/.nuget/packages

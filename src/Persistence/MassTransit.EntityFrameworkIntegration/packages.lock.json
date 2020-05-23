@@ -123,17 +123,17 @@
       "runtime.win-arm64.runtime.native.System.Data.SqlClient.sni": {
         "type": "Transitive",
         "resolved": "4.4.0",
-        "contentHash": "4z7TFQowrNhdGJGWmatvxktuPIcnZfMiVf9ZePtIc96A8JPUJAoqd81/XJ7C69eP0L+5DukRPfqKHu68LTHJLg=="
+        "contentHash": "LbrynESTp3bm5O/+jGL8v0Qg5SJlTV08lpIpFesXjF6uGNMWqFnUQbYBJwZTeua6E/Y7FIM1C54Ey1btLWupdg=="
       },
       "runtime.win-x64.runtime.native.System.Data.SqlClient.sni": {
         "type": "Transitive",
         "resolved": "4.4.0",
-        "contentHash": "ATYMMCRHonRm42LfaLitP+nNZiSS9/ohuMEmazGDdXL8pQYy46BsGGlD0xG9qudQ1OyauxvCNld03hlehAc1xA=="
+        "contentHash": "38ugOfkYJqJoX9g6EYRlZB5U2ZJH51UP8ptxZgdpS07FgOEToV+lS11ouNK2PM12Pr6X/PpT5jK82G3DwH/SxQ=="
       },
       "runtime.win-x86.runtime.native.System.Data.SqlClient.sni": {
         "type": "Transitive",
         "resolved": "4.4.0",
-        "contentHash": "4HmTWYLaco3IqtEtHeNWZyZOW4wWOWPAFNLg82sLaCVMYOmQQUXi5QVBBHxrMb4/FmqbqMhpOGnfOK302ZQvQQ=="
+        "contentHash": "YhEdSQUsTx+C8m8Bw7ar5/VesXvCFMItyZF7G1AUY+OM0VPZUOeAVpJ4Wl6fydBGUYZxojTDR3I6Bj/+BPkJNA=="
       },
       "System.Buffers": {
         "type": "Transitive",
@@ -259,7 +259,7 @@
       "System.Numerics.Vectors": {
         "type": "Transitive",
         "resolved": "4.4.0",
-        "contentHash": "ZhdgJiihSOGD325jClouHy8WSPtwFSj6K1OymoEyN0Wc9Y6X2OVxn65VKfTWHQOYM+QljlVSreporVNvZm8rEA=="
+        "contentHash": "UiLzLW+Lw6HLed1Hcg+8jSRttrbuXv7DANVj0DkL9g6EnnzbL75EB7EWsw5uRbhxd/4YdG8li5XizGWepmG3PQ=="
       },
       "System.Reflection": {
         "type": "Transitive",

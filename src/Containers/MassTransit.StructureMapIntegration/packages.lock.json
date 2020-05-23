@@ -25,7 +25,7 @@
         "type": "Direct",
         "requested": "[4.7.1, )",
         "resolved": "4.7.1",
-        "contentHash": "ctItkz9GEs7zGKCYXJiCpaoBOrLECwypP/SW4ni1T+Xg0nu4SX8y+1iRZn8O5rwTuttwwNqteemTMOhec3tvkw==",
+        "contentHash": "ePJIef6IFpQ+WmDoH2Xr4EFrnbI1z79Z8ukt5ZhlsjKgK47giEJmqnym9BXJ91meBj1dl/7Hn6Nw1amsLFbHJA==",
         "dependencies": {
           "System.Collections.Concurrent": "4.3.0",
           "System.Reflection.Emit.Lightweight": "4.3.0",
@@ -220,7 +220,7 @@
       "System.Numerics.Vectors": {
         "type": "Transitive",
         "resolved": "4.4.0",
-        "contentHash": "ZhdgJiihSOGD325jClouHy8WSPtwFSj6K1OymoEyN0Wc9Y6X2OVxn65VKfTWHQOYM+QljlVSreporVNvZm8rEA=="
+        "contentHash": "UiLzLW+Lw6HLed1Hcg+8jSRttrbuXv7DANVj0DkL9g6EnnzbL75EB7EWsw5uRbhxd/4YdG8li5XizGWepmG3PQ=="
       },
       "System.Reflection": {
         "type": "Transitive",

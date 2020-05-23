@@ -6,13 +6,13 @@
         "type": "Direct",
         "requested": "[2.0.0, )",
         "resolved": "2.0.0",
-        "contentHash": "8OobpMs58GyXKCy6HeqoxtyPYzUMOScb2EHK5R+CnX95beyGNhBSTil3tLi4I1tMr8ypBwXy6/6kh5agPqHjJQ=="
+        "contentHash": "D2GsYP/5kddQss6vkX8edw6Dt+qHBN5+pv6DIF8vvb8ObFyiU/r/JK8A2RKE1ucC6nPojQUApvq8IJVNIjYedQ=="
       },
       "Microsoft.AspNetCore.SignalR.Core": {
         "type": "Direct",
         "requested": "[1.1.0, )",
         "resolved": "1.1.0",
-        "contentHash": "MQpgKLhBo2kOTUMephOh+VWj4F8CjqGQuUB5po/BtLVNdnHYGVW82hV5HydUnwOaSfar1V2rMyxOXa6XBZJP4g==",
+        "contentHash": "mk69z50oFk2e89d3F/AfKeAvP3kvGG7MHG4ErydZiUd3ncSRq0kl0czq/COn/QVKYua9yGr2LIDwuR1C6/pu8Q==",
         "dependencies": {
           "Microsoft.AspNetCore.Authorization": "2.2.0",
           "Microsoft.AspNetCore.SignalR.Common": "1.1.0",
@@ -73,7 +73,7 @@
         "type": "Direct",
         "requested": "[3.0.2, )",
         "resolved": "3.0.2",
-        "contentHash": "M0wc4HvHUbZzWfRlPRue8d+2Ztf+RKXlFJyw8GSOohOE46Ld2ksLN0G+1kWhHR6zfj/Q8vdCUBcw8YyXB6JGWg==",
+        "contentHash": "G3+8o4VlT1VsB6hs/ESSDqyLNNHVJuIKCfi/7Ix3mviuqNhOdHTdmJym+04+E3Pj//LmCEfJkOUDrAursHfYew==",
         "dependencies": {
           "Microsoft.CSharp": "4.3.0",
           "System.Dynamic.Runtime": "4.3.0",
@@ -112,7 +112,7 @@
       "Microsoft.AspNetCore.Authorization": {
         "type": "Transitive",
         "resolved": "2.2.0",
-        "contentHash": "FoTvJ2jdOMR/7+uppXqjdADcsp/ZrxLVrrLuhRMr2pYTMhaLlSYw92+sLAJ6mddPCkHpHMJlFCy7bK399G3YgQ==",
+        "contentHash": "/L0W8H3jMYWyaeA9gBJqS/tSWBegP9aaTM0mjRhxTttBY9z4RVDRYJ2CwPAmAXIuPr3r1sOw+CS8jFVRGHRezQ==",
         "dependencies": {
           "Microsoft.Extensions.Logging.Abstractions": "2.2.0",
           "Microsoft.Extensions.Options": "2.2.0"
@@ -148,7 +148,7 @@
       "Microsoft.AspNetCore.SignalR.Protocols.Json": {
         "type": "Transitive",
         "resolved": "1.1.0",
-        "contentHash": "TJKljYF2w1k4iDx4+XFx9UgDCHQMIcavP4DP4pQreHEnf+io7TYQnS5JDDeBN50LJi9305So6TOi/az98K1MGA==",
+        "contentHash": "BOsjatDJnvnnXCMajOlC0ISmiFnJi/EyJzMo0i//5fZJVCLrQ4fyV/HzrhhAhSJuwJOQDdDozKQ9MB9jHq84pg==",
         "dependencies": {
           "Microsoft.AspNetCore.SignalR.Common": "1.1.0",
           "Newtonsoft.Json": "11.0.2"
@@ -281,7 +281,7 @@
       "NETStandard.Library": {
         "type": "Transitive",
         "resolved": "2.0.0",
-        "contentHash": "K+VbtrXt7GVyKmV5O/VtHtNexwarX+I6I+eTBwfWHIgBn2qgsfOqWi8Vbqa86lMbglpOwGXBageEJr8Fq71yiw==",
+        "contentHash": "7jnbRU+L08FXKMxqUflxEXtVymWvNOrS8yHgu9s6EM8Anr6T/wIX4nZ08j/u3Asz+tCufp3YVwFSEvFTPYmBPA==",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0"
         }

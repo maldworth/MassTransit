@@ -257,7 +257,7 @@
       "Microsoft.Azure.Amqp": {
         "type": "Transitive",
         "resolved": "2.4.2",
-        "contentHash": "5ts50ikcpHnJPISv4y38iianhTf0j9Qk+tapJOORcYTHfGXnUhvmlFrTB0GxenNX+7b0KMx/eaOpraSls6msrg==",
+        "contentHash": "lpLAG37LJ6UCU6mF4kGFt9mxtp6BQPAEB07pxSKDjzqRhqLrd0yHArGTg8vkIIDw5JR6iVZIhpS2vxMF4KtR0A==",
         "dependencies": {
           "System.Net.WebSockets.Client": "4.0.2",
           "System.Runtime.Serialization.Primitives": "4.1.1"
@@ -468,7 +468,7 @@
       "Microsoft.Extensions.Hosting": {
         "type": "Transitive",
         "resolved": "2.1.0",
-        "contentHash": "bpQcOKnD2wKKM4veTMkty8keaGcEAEWpESvEEW3z6n+M8nVvLFyrZh56H0/fZYsprvRceuzN2YHiG/48EG7/Ug==",
+        "contentHash": "nqOrLtBqpwRT006vdQ2Vp87uiuYztiZcZAndFqH91ZH4SQgr8wImCVQwzUgTxx1DSrpIW765+xrZTZqsoGtvqg==",
         "dependencies": {
           "Microsoft.Extensions.Configuration": "2.1.0",
           "Microsoft.Extensions.DependencyInjection": "2.1.0",
@@ -938,7 +938,7 @@
       "System.Diagnostics.StackTrace": {
         "type": "Transitive",
         "resolved": "4.3.0",
-        "contentHash": "dulzDmMQ2f5HPM2Swn//KXlgvP6poJDaoTuRqBWI0ofmCTtI5nXasvXBSR0b4efECgQhWCmSEFEThZ+H0mlu/w==",
+        "contentHash": "BiHg0vgtd35/DM9jvtaC1eKRpWZxr0gcQd643ABG7GnvSlf5pOkY2uyd42mMOJoOmKvnpNj0F4tuoS1pacTwYw==",
         "dependencies": {
           "System.IO.FileSystem": "4.3.0",
           "System.Reflection": "4.3.0",
@@ -1222,7 +1222,7 @@
       "System.Numerics.Vectors": {
         "type": "Transitive",
         "resolved": "4.4.0",
-        "contentHash": "ZhdgJiihSOGD325jClouHy8WSPtwFSj6K1OymoEyN0Wc9Y6X2OVxn65VKfTWHQOYM+QljlVSreporVNvZm8rEA=="
+        "contentHash": "UiLzLW+Lw6HLed1Hcg+8jSRttrbuXv7DANVj0DkL9g6EnnzbL75EB7EWsw5uRbhxd/4YdG8li5XizGWepmG3PQ=="
       },
       "System.ObjectModel": {
         "type": "Transitive",

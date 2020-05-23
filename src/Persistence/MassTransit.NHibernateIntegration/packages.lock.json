@@ -150,7 +150,7 @@
       "Remotion.Linq.EagerFetching": {
         "type": "Transitive",
         "resolved": "2.2.0",
-        "contentHash": "gDL86d4V84XC7e4ab0goGhLL1UfN11VkRdtHcHFU5LNmBteuCyl/auBuHF8MDftpZJaQY8gzy30oyJ/jc8+WsA==",
+        "contentHash": "d6bkH5kROJPFsdvDy4yQved9I4ickamytPByPyuQcH9dk1ef4jciajo50vTQhheyOHeWOgLh97UvkiHV8QSgeQ==",
         "dependencies": {
           "Remotion.Linq": "2.2.0",
           "System.Collections": "4.0.11",
@@ -311,7 +311,7 @@
       "System.Numerics.Vectors": {
         "type": "Transitive",
         "resolved": "4.4.0",
-        "contentHash": "ZhdgJiihSOGD325jClouHy8WSPtwFSj6K1OymoEyN0Wc9Y6X2OVxn65VKfTWHQOYM+QljlVSreporVNvZm8rEA=="
+        "contentHash": "UiLzLW+Lw6HLed1Hcg+8jSRttrbuXv7DANVj0DkL9g6EnnzbL75EB7EWsw5uRbhxd/4YdG8li5XizGWepmG3PQ=="
       },
       "System.ObjectModel": {
         "type": "Transitive",
