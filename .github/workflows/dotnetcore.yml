@@ -20,7 +20,8 @@ jobs:
         key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
         restore-keys: |
           ${{ runner.os }}-nuget-
-      
+          
+    - name: test
       if: steps.cache-dependencies.outputs.cache-hit != 'true'
     - uses: actions/checkout@v2
     - name: Setup .NET Core
