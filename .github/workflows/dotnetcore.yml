@@ -12,27 +12,41 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1.101
-    - name: Install dependencies
-      run: dotnet restore
+    - name: Cache Dependencies
+      id: cache-dependencies
     - uses: actions/cache@v1
       with:
         path: ~/.nuget/packages
         key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
         restore-keys: |
           ${{ runner.os }}-nuget-
+      
+      if: steps.cache-dependencies.outputs.cache-hit != 'true'
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101
+    - name: Install Dependencies
+      run: dotnet restore
+      
   in-mem-tests:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - name: Cache Dependencies
+        id: cache-dependencies
+      - uses: actions/cache@v1
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+            
       - uses: actions/checkout@v2
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 3.1.101
       - name: Test
-        run: dotnet test ./tests/MassTransit.Tests/MassTransit.Tests.csproj --verbosity normal
+        run: dotnet test ./tests/MassTransit.Tests/MassTransit.Tests.csproj --no-restore --verbosity normal
