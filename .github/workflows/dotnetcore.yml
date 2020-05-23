@@ -30,4 +30,4 @@ jobs:
         with:
           dotnet-version: 3.1.101
       - name: Test
-        run: dotnet test ./tests/MassTransit.Tests --no-build --no-restore --verbosity normal
+        run: dotnet test ./tests/MassTransit.Tests/MassTransit.Tests.csproj --no-build --no-restore --verbosity normal
