@@ -21,7 +21,8 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --configuration Release --no-restore
-    - name: Test
+    - name: Test Main
       run: dotnet test ./tests/MassTransit.Tests/MassTransit.Tests.csproj --no-restore --no-build --verbosity normal
+    - name: Container Tests
       run: dotnet test ./tests/MassTransit.Containers.Tests/MassTransit.Containers.Tests.csproj --no-restore --no-build --verbosity normal
 
