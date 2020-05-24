@@ -20,7 +20,7 @@ jobs:
     - name: Install Dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build --no-restore
     - name: Test Main
       run: dotnet test ./tests/MassTransit.Tests/MassTransit.Tests.csproj --no-restore --no-build --verbosity normal
     - name: Container Tests
