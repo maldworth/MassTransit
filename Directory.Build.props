@@ -2,9 +2,6 @@
   <!-- These properties will be shared for all projects -->
 
   <PropertyGroup>
-    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
-    <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
-    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     <LangVersion>8</LangVersion>
     <WarningLevel>4</WarningLevel>
     <NoWarn>CS1587,CS1591,CS1998,NU5105</NoWarn>
